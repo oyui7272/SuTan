@@ -100,7 +100,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="decide" destination="BYZ-38-t0r" eventType="touchUpInside" id="uhp-Hs-o29"/>
-                                    <segue destination="Yg5-N2-V4S" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="1dq-uX-uA3"/>
+                                    <segue destination="Yg5-N2-V4S" kind="presentation" identifier="toResult" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="1dq-uX-uA3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -112,7 +112,6 @@
                         <outlet property="minusButton" destination="wlQ-fP-CkK" id="ubW-oU-cnQ"/>
                         <outlet property="plusButton" destination="htC-Nn-05p" id="sjg-ec-V5M"/>
                         <outlet property="timerLabel" destination="yLK-Gr-tUW" id="Nwk-ck-Ns1"/>
-                        <segue destination="Yg5-N2-V4S" kind="presentation" identifier="toResult" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="nFM-Ik-dER"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -197,9 +196,6 @@
             <point key="canvasLocation" x="756" y="92.203898050974516"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="1dq-uX-uA3"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="main_img" width="1001" height="1001"/>
     </resources>

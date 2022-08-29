@@ -87,9 +87,9 @@ class ViewController: UIViewController {
     @objc func down() {
         if timeCount > 0 {
             // countから0.01ひく
-            timeCount = timeCount - 0.1
+            timeCount = timeCount - 1.0
             // ラベルに小数点以下2桁まで表示
-            timerLabel.text = "残り\(String(format: "%.1f", timeCount))秒"
+            timerLabel.text = "残り\(String(format: "%.0f", timeCount))秒"
         } else {
             decide()
             // ResultViewControllerへ移動
@@ -101,7 +101,7 @@ class ViewController: UIViewController {
     func start() {
        // タイマーが作動していなかったら動かす
         if !timer.isValid {
-            timer = Timer.scheduledTimer(timeInterval: 0.1,
+            timer = Timer.scheduledTimer(timeInterval: 1.0,
                                          target: self,
                                          selector: #selector(self.down),
                                          userInfo: nil,

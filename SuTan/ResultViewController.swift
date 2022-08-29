@@ -21,7 +21,8 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print(String(score))
+        print("score: \(String(score))")
+        // 得点などをラベルに表示
         scoreLabel.text = String(score)
         yourNumLabel.text = String(yourNum)
         randomNumLabel.text = String(randomNum)
