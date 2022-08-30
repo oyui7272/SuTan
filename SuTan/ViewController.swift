@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
-    // 現在のカウント数, 残り時間を表示するラベルの配置
+    // ラベルの配置
     @IBOutlet var countLabel: UILabel!
     @IBOutlet var timerLabel: UILabel!
+    @IBOutlet var randomNumLabel: UILabel!
+    @IBOutlet var scoreLabel: UILabel!
     
     // ボタンの配置
     @IBOutlet var minusButton: UIButton!
@@ -21,35 +24,50 @@ class ViewController: UIViewController {
     var count: Int = 0
     // ランダムに生成された答えの数
     var randomNum: Int = 0
+    // スコア
+    var score: Int = 0
+    var addScore: Int = 0
     
     // 現在のタイマーの数
-    var timeCount: Float = 10.0
+    var timeCount: Float = 15.0
+    
     // タイマー
     var timer: Timer = Timer()
     
+    // サウンと
+    let okSoundPlayer = try!AVAudioPlayer(data: NSDataAsset(name: "ok_sound")!.data)
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // カウントラベルをデザインする
-        countLabel.layer.cornerRadius = 100
-        countLabel.layer.borderColor = UIColor(red: 223, green: 160, blue: 138, alpha: 1).cgColor
-        countLabel.layer.borderWidth = 8
+        // カウントラベルをデザイン
+        countLabel.layer.cornerRadius = 90
+        countLabel.layer.borderColor = UIColor.white.cgColor
+        countLabel.layer.borderWidth = 10
         
-        // マイナスボタン, プラスボタンをデザインする
+        // マイナスボタン, プラスボタンをデザイン
         minusButton.layer.cornerRadius = 40
         plusButton.layer.cornerRadius = 40
         
-        // 乱数を生成する
-        randomNum = Int.random(in: 0...100)
-        print("randomNum： \(randomNum)")
+        // 乱数を生成
+        randomNum = Int.random(in: 1...50)
+        randomNumLabel.text = String("- \(randomNum) -")
         
-        // タイマーをスタートする
+        // 最初に加えるスコアを決定
+        addScore = randomNum
+        
+        // スコアを表示
+        scoreLabel.text = "\(String(score)) pt"
+        
+        // タイマーをスタート
         start()
     }
     
     // カウントアップ
     @IBAction func countUp() {
-        count = count + 1
-        countLabel.text = String(count)
+        if count < 50 {
+            count = count + 1
+            countLabel.text = String(count)
+        }
     }
     
     // カウントダウン
@@ -73,14 +91,30 @@ class ViewController: UIViewController {
         let resultVC = segue.destination as! ResultViewController
         
         // 渡したい値
-        resultVC.score = 100 - abs(randomNum - count)
-        resultVC.randomNum = randomNum
-        resultVC.yourNum = count
+        resultVC.score = score
     }
     
     // 「決定する」ボタンが呼ばれたときの動作
     @IBAction func decide() {
-        stop()
+        // 数が正解か確かめ、合っていたらscoreとtimerを増加
+        if randomNum == count {
+            // オッケーの音を巻き戻す
+            okSoundPlayer.currentTime = 0
+            okSoundPlayer.play()
+            
+            score = score + addScore
+            timeCount = timeCount + 3.0
+            
+            // 乱数の再生成
+            randomNum = Int.random(in: 1...50)
+            randomNumLabel.text = String("- \(randomNum) -")
+            
+            // スコアを表示
+            scoreLabel.text = "\(String(score)) pt"
+            
+            // 次正解時のスコアを決定
+            addScore = abs(randomNum - count)
+        }
     }
     
     // タイマーをカウントダウンする
@@ -89,9 +123,18 @@ class ViewController: UIViewController {
             // countから0.01ひく
             timeCount = timeCount - 1.0
             // ラベルに小数点以下2桁まで表示
-            timerLabel.text = "残り\(String(format: "%.0f", timeCount))秒"
+            timerLabel.text = "\(String(format: "%.0f", timeCount)) 秒"
+            
+            if timeCount <= 3 {
+                timerLabel.textColor = UIColor(red: 223 / 255, green: 160 / 255, blue: 138 / 255, alpha: 1.0)
+            } else {
+                if timerLabel.textColor == UIColor(red: 223 / 255, green: 160 / 255, blue: 138 / 255, alpha: 1.0){
+                    timerLabel.textColor = UIColor.darkGray
+                }
+            }
         } else {
             decide()
+            stop()
             // ResultViewControllerへ移動
             self.performSegue(withIdentifier: "toResult", sender: nil)
         }

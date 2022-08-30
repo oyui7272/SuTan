@@ -10,8 +10,6 @@ import UIKit
 class ResultViewController: UIViewController {
     
     var score: Int = 0
-    var randomNum: Int = 0
-    var yourNum: Int = 0
     
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var yourNumLabel: UILabel!
@@ -22,10 +20,11 @@ class ResultViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         print("score: \(String(score))")
-        // 得点などをラベルに表示
+        // 得点ラベルの表示
+        scoreLabel.layer.cornerRadius = 90
+        scoreLabel.layer.borderColor = UIColor.white.cgColor
+        scoreLabel.layer.borderWidth = 10
         scoreLabel.text = String(score)
-        yourNumLabel.text = String(yourNum)
-        randomNumLabel.text = String(randomNum)
     }
     
     @IBAction func goTop(){
