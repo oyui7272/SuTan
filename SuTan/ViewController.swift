@@ -113,7 +113,7 @@ class ViewController: UIViewController {
             scoreLabel.text = "\(String(score)) pt"
             
             // 次正解時のスコアを決定
-            addScore = abs(randomNum - count)
+            addScore = abs(randomNum - count) + 10
         }
     }
     

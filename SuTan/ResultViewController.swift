@@ -28,7 +28,7 @@ class ResultViewController: UIViewController {
     }
     
     @IBAction func goTop(){
-        self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 
     /*
