@@ -12,8 +12,7 @@ class ResultViewController: UIViewController {
     var score: Int = 0
     
     @IBOutlet var scoreLabel: UILabel!
-    @IBOutlet var yourNumLabel: UILabel!
-    @IBOutlet var randomNumLabel: UILabel!
+    @IBOutlet var scoreBgView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +20,10 @@ class ResultViewController: UIViewController {
         // Do any additional setup after loading the view.
         print("score: \(String(score))")
         // 得点ラベルの表示
-        scoreLabel.layer.cornerRadius = 90
-        scoreLabel.layer.borderColor = UIColor.white.cgColor
-        scoreLabel.layer.borderWidth = 10
+        scoreBgView.layer.cornerRadius = 110
+//        scoreBgView.layer.shadowColor = UIColor.gray.cgColor
+//        scoreBgView.layer.shadowOffset = CGSize(width: 4.0, height: 2.0)
+//        scoreBgView.layer.shadowOpacity = 0.3
         scoreLabel.text = String(score)
     }
     

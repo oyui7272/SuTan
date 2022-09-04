@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5854BCD628C0C174007C2B03 /* AkazukiPOP.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5854BCD528C0C174007C2B03 /* AkazukiPOP.otf */; };
+		5854BCD828C10587007C2B03 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5854BCD728C10587007C2B03 /* TopViewController.swift */; };
 		5892548328BC7EA600CB9FD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5892548228BC7EA600CB9FD8 /* AppDelegate.swift */; };
 		5892548528BC7EA600CB9FD8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5892548428BC7EA600CB9FD8 /* SceneDelegate.swift */; };
 		5892548728BC7EA600CB9FD8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5892548628BC7EA600CB9FD8 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		5854BCD528C0C174007C2B03 /* AkazukiPOP.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AkazukiPOP.otf; sourceTree = "<group>"; };
+		5854BCD728C10587007C2B03 /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		5892547F28BC7EA600CB9FD8 /* SuTan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuTan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5892548228BC7EA600CB9FD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5892548428BC7EA600CB9FD8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				5892548D28BC7EA700CB9FD8 /* LaunchScreen.storyboard */,
 				5892549028BC7EA700CB9FD8 /* Info.plist */,
 				5892549628BC8E6E00CB9FD8 /* ResultViewController.swift */,
+				5854BCD728C10587007C2B03 /* TopViewController.swift */,
 			);
 			path = SuTan;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				5892548328BC7EA600CB9FD8 /* AppDelegate.swift in Sources */,
 				5892548528BC7EA600CB9FD8 /* SceneDelegate.swift in Sources */,
 				5892549728BC8E6E00CB9FD8 /* ResultViewController.swift in Sources */,
+				5854BCD828C10587007C2B03 /* TopViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

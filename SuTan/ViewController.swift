@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     // ボタンの配置
     @IBOutlet var minusButton: UIButton!
     @IBOutlet var plusButton: UIButton!
-    
+    @IBOutlet var shadowView: UIView!
     // 現在のカウント数
     var count: Int = 0
     // ランダムに生成された答えの数
@@ -40,14 +40,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // カウントラベルをデザイン
-        countLabel.layer.cornerRadius = 90
-        countLabel.layer.borderColor = UIColor.white.cgColor
-        countLabel.layer.borderWidth = 10
+        countLabel.layer.cornerRadius = 110
+
+//        shadowView.layer.cornerRadius = 110
+//        shadowView.layer.shadowColor = UIColor.gray.cgColor
+//        shadowView.layer.shadowOffset = CGSize(width: 4.0, height: 2.0)
+//        shadowView.layer.shadowOpacity = 0.3
         
         // マイナスボタン, プラスボタンをデザイン
-        minusButton.layer.cornerRadius = 40
-        plusButton.layer.cornerRadius = 40
-        
+        minusButton.layer.cornerRadius = 80
+        plusButton.layer.cornerRadius = 80
+//
+//        plusButton.layer.shadowColor = UIColor.gray.cgColor
+//        plusButton.layer.shadowOffset = CGSize(width: 4.0, height: 2.0)
+//        plusButton.layer.shadowOpacity = 0.3
+//
+//        minusButton.layer.shadowColor = UIColor.gray.cgColor
+//        minusButton.layer.shadowOffset = CGSize(width: 4.0, height: 2.0)
+//        minusButton.layer.shadowOpacity = 0.3
+//
         // 乱数を生成
         randomNum = Int.random(in: 1...50)
         randomNumLabel.text = String("- \(randomNum) -")
